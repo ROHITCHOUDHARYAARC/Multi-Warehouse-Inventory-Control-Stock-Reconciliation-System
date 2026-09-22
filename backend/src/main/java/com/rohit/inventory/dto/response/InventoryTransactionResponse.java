@@ -1,0 +1,1 @@
+package com.rohit.inventory.dto.response; import java.math.BigDecimal; import java.time.Instant; import java.util.UUID; public record InventoryTransactionResponse(UUID id,String type,BigDecimal quantityDelta,BigDecimal previousOnHand,BigDecimal resultingOnHand,BigDecimal previousReserved,BigDecimal resultingReserved,String reason,Instant occurredAt){}

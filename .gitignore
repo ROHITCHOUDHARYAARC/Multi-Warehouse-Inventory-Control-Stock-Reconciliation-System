@@ -1,0 +1,30 @@
+# Java/Maven build output
+**/target/
+**/target-*/
+**/.m2/
+
+# Frontend generated files
+**/*.tsbuildinfo
+frontend/vite.config.js
+frontend/vite.config.d.ts
+
+# Local environment and IDE files
+**/.env
+**/.env.*
+!.env.example
+.idea/
+*.iml
+.vscode/
+
+# Logs and temporary files
+*.log
+*.tmp
+
+**/node_modules/
+**/target/
+**/target-*/
+**/.m2/
+**/*.tsbuildinfo
+
+# Frontend build output
+frontend/dist/

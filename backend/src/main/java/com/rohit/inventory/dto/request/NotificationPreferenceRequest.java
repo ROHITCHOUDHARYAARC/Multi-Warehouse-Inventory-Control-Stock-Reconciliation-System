@@ -1,0 +1,1 @@
+package com.rohit.inventory.dto.request; import jakarta.validation.constraints.NotBlank; import jakarta.validation.constraints.NotNull; public record NotificationPreferenceRequest(@NotBlank String notificationType,@NotNull Boolean enabled){}

@@ -1,0 +1,1 @@
+package com.rohit.inventory.repository; import com.rohit.inventory.entity.StockTransferItem; import java.util.*; import org.springframework.data.jpa.repository.JpaRepository; public interface StockTransferItemRepository extends JpaRepository<StockTransferItem,UUID>{}

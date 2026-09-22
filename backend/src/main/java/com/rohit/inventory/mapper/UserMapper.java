@@ -1,0 +1,3 @@
+package com.rohit.inventory.mapper;
+import com.rohit.inventory.dto.response.UserResponse; import com.rohit.inventory.entity.User; import org.springframework.stereotype.Component;
+@Component public class UserMapper { public UserResponse toResponse(User u) { return new UserResponse(u.getId(),u.getUsername(),u.getEmail(),u.getFirstName(),u.getLastName(),u.getPhone(),u.getStatus(),u.getRoles().stream().map(r->r.getCode()).sorted().toList(),u.getAssignedWarehouses().stream().map(w->new UserResponse.WarehouseSummary(w.getId(),w.getCode(),w.getName())).sorted(java.util.Comparator.comparing(UserResponse.WarehouseSummary::code)).toList(),u.getCreatedAt(),u.getUpdatedAt()); } }

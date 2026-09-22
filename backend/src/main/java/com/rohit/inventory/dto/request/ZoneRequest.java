@@ -1,0 +1,1 @@
+package com.rohit.inventory.dto.request; import jakarta.validation.constraints.*; import java.math.BigDecimal; public record ZoneRequest(@NotBlank @Size(max=40) String code,@NotBlank @Size(max=120) String name,@NotBlank @Size(max=30) String zoneType,@NotNull @DecimalMin("0.0") BigDecimal capacityQuantity){}

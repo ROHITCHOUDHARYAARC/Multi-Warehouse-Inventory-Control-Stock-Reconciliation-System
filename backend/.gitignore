@@ -1,0 +1,13 @@
+target/
+target-phase*/
+**/.m2/
+.idea/
+*.iml
+.env
+*.log
+
+node_modules/
+dist/
+.angular/
+.cache/
+.vscode/

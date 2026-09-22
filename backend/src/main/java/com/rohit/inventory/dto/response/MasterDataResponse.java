@@ -1,0 +1,1 @@
+package com.rohit.inventory.dto.response; import java.math.BigDecimal; import java.util.UUID; public record MasterDataResponse(UUID id,String code,String name,String status,String detail,BigDecimal capacity){}

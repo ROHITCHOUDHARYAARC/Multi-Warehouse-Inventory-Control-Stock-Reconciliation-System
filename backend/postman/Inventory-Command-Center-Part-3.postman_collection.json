@@ -1,0 +1,10 @@
+{
+  "info": {"name":"Inventory Command Center - Part 3","schema":"https://schema.getpostman.com/json/collection/v2.1.0/collection.json"},
+  "variable": [{"key":"baseUrl","value":"http://localhost:8080"}],
+  "item": [
+    {"name":"Health","request":{"method":"GET","url":"{{baseUrl}}/api/v1/health"}},
+    {"name":"Actuator Health","request":{"method":"GET","url":"{{baseUrl}}/actuator/health"}},
+    {"name":"Protected Products (expects 401 before Part 4)","request":{"method":"GET","url":"{{baseUrl}}/api/v1/products"}},
+    {"name":"Protected Warehouses (expects 401 before Part 4)","request":{"method":"GET","url":"{{baseUrl}}/api/v1/warehouses"}}
+  ]
+}

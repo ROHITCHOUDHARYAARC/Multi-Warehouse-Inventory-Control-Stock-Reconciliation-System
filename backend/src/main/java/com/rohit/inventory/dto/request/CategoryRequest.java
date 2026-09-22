@@ -1,0 +1,1 @@
+package com.rohit.inventory.dto.request; import jakarta.validation.constraints.*; import java.util.UUID; public record CategoryRequest(@NotBlank @Size(max=120) String name,String description,UUID parentCategoryId){}

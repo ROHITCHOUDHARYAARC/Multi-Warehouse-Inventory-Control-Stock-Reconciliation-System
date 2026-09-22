@@ -1,0 +1,35 @@
+{
+  "info": {
+    "name": "Reviewer - Inventory Microservices API Demonstration",
+    "description": "Import this collection in Postman. Login stores the JWT for protected requests. In the current compatibility release baseUrl points to the existing backend; after extraction it points to the API Gateway.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {"key": "baseUrl", "value": "http://localhost:8080"},
+    {"key": "accessToken", "value": ""}
+  ],
+  "item": [
+    {"name": "1. Gateway", "item": [
+      {"name": "Health", "request": {"method": "GET", "url": "{{baseUrl}}/api/v1/health"}}
+    ]},
+    {"name": "2. Identity Service", "item": [
+      {"name": "Login (stores JWT)", "event": [{"listen": "test", "script": {"exec": ["pm.test('Login succeeded', function () { pm.expect(pm.response.code).to.eql(200); });", "const response = pm.response.json(); pm.collectionVariables.set('accessToken', response.data.accessToken);"]}}], "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"email\": \"replace-with-admin-email\",\n  \"password\": \"replace-with-password\"\n}"}, "url": "{{baseUrl}}/api/v1/auth/login"}},
+      {"name": "Current User", "request": {"method": "GET", "header": [{"key": "Authorization", "value": "Bearer {{accessToken}}"}], "url": "{{baseUrl}}/api/v1/auth/me"}}
+    ]},
+    {"name": "3. Catalog Service", "item": [
+      {"name": "List Warehouses", "request": {"method": "GET", "header": [{"key": "Authorization", "value": "Bearer {{accessToken}}"}], "url": "{{baseUrl}}/api/v1/warehouses?page=0&size=20"}}
+    ]},
+    {"name": "4. Inventory Service", "item": [
+      {"name": "List Inventory", "request": {"method": "GET", "header": [{"key": "Authorization", "value": "Bearer {{accessToken}}"}], "url": "{{baseUrl}}/api/v1/inventory?page=0&size=20"}}
+    ]},
+    {"name": "5. Transfer Service", "item": [
+      {"name": "List Transfers", "request": {"method": "GET", "header": [{"key": "Authorization", "value": "Bearer {{accessToken}}"}], "url": "{{baseUrl}}/api/v1/transfers?page=0&size=20"}}
+    ]},
+    {"name": "6. Notification Service", "item": [
+      {"name": "List Alerts", "request": {"method": "GET", "header": [{"key": "Authorization", "value": "Bearer {{accessToken}}"}], "url": "{{baseUrl}}/api/v1/alerts?page=0&size=20"}}
+    ]},
+    {"name": "7. Audit Service", "item": [
+      {"name": "Recent Audit Events", "request": {"method": "GET", "header": [{"key": "Authorization", "value": "Bearer {{accessToken}}"}], "url": "{{baseUrl}}/api/v1/audit?page=0&size=20"}}
+    ]}
+  ]
+}

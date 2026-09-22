@@ -1,0 +1,1 @@
+package com.rohit.inventory.dto.request; import jakarta.validation.Valid; import jakarta.validation.constraints.*; import java.util.*; public record TransferCreateRequest(@NotNull UUID sourceWarehouseId,@NotNull UUID destinationWarehouseId,@NotEmpty List<@Valid TransferItemRequest> items,@NotBlank @Size(max=200) String reason,@Size(max=500) String notes){}

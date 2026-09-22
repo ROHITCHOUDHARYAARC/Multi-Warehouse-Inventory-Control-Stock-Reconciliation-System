@@ -1,0 +1,1 @@
+package com.rohit.inventory.dto.response; import java.time.Instant; import java.util.UUID; public record AlertResponse(UUID id,String type,String severity,String title,String message,UUID warehouseId,UUID productId,String status,Instant createdAt){}

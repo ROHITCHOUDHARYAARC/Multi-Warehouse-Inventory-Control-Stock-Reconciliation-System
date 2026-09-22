@@ -1,0 +1,1 @@
+package com.rohit.inventory.dto.request; import jakarta.validation.constraints.*; import java.math.BigDecimal; import java.util.UUID; public record TransferItemRequest(@NotNull UUID productId,@NotNull UUID sourceZoneId,@NotNull UUID destinationZoneId,@NotNull @DecimalMin("0.001") BigDecimal quantity){}

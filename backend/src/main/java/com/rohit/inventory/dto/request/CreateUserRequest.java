@@ -1,0 +1,3 @@
+package com.rohit.inventory.dto.request;
+import jakarta.validation.constraints.*; import java.util.Set; import java.util.UUID;
+public record CreateUserRequest(@NotBlank @Size(max=80) String username, @NotBlank @Email @Size(max=255) String email, @NotBlank @Size(min=10,max=100, message="Password must contain 10 to 100 characters") @Pattern(regexp="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[^A-Za-z0-9]).+$", message="Password must include upper-case, lower-case, number and special character") String password, @NotBlank @Size(max=100) String firstName, @NotBlank @Size(max=100) String lastName, @Size(max=30) String phone, @NotEmpty Set<@NotBlank String> roleCodes, Set<UUID> warehouseIds) { }

@@ -1,0 +1,1 @@
+package com.rohit.inventory.dto.request; import jakarta.validation.constraints.*; public record SupplierRequest(@NotBlank @Size(max=40) String code,@NotBlank @Size(max=180) String name,String contactName,@Email String email,String phone,String addressLine1,String city,String state,String country){}
